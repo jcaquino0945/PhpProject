@@ -1,36 +1,36 @@
 <?php
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "vogueDB";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "vogueDB";
 
-// // Create connection
-// $conn = new mysqli($servername, $username, $password,$dbname);
+// Create connection
+$conn = new mysqli($servername, $username, $password,$dbname);
 
-// // Check connection
-// if ($conn->connect_error) {
-//   die("Connection failed: " . $conn->connect_error);
-// }
-// echo "Connected successfully";
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
 
-// // // sql to create table
-// // $sql = "CREATE TABLE employees (
-// //     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-// //     displayName VARCHAR(30) NOT NULL,
-// //     salary FLOAT(10,2) NOT NULL,
-// //     employedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-// //     )";
+// // sql to create table
+// $sql = "CREATE TABLE employees (
+//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//     displayName VARCHAR(30) NOT NULL,
+//     salary FLOAT(10,2) NOT NULL,
+//     employedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+//     )";
 
-// // $sql = "INSERT INTO employees (displayName, salary)
-// // VALUES ('Keanu Reeves', 1000000)";
+// $sql = "INSERT INTO employees (displayName, salary)
+// VALUES ('Keanu Reeves', 1000000)";
 
-// // if ($conn->query($sql) === TRUE) {
-// //     echo " employees has been created";
-// //   } else {
-// //     echo "Error creating employee: " . $conn->error;
-// //   }
-// $sql = "SELECT * FROM employees";
-// $result = $conn->query($sql);
+// if ($conn->query($sql) === TRUE) {
+//     echo " employees has been created";
+//   } else {
+//     echo "Error creating employee: " . $conn->error;
+//   }
+$sql = "SELECT * FROM employees";
+$result = $conn->query($sql);
 
 // if ($result->num_rows > 0) {
 //   // output data of each row
@@ -40,7 +40,7 @@
 // } else {
 //   echo "0 results";
 // }
-// $conn->close();
+$conn->close();
 
 ?>
 
@@ -90,18 +90,19 @@
 
         <div class="form-row">
             <div class="form-row-child">
-                <label for="inputPlaceholder3">Employee Name</label>
+                <label for="inputPlaceholder4">Employee Name</label>
                 <select class="form-select" aria-label="Default select example" name="val1">
                 <option selected>Select Employee</option>
                 <option value="Miguel Aquino">Miguel Aquino</option>
                 <option value="Hans Nituda">Hans Nituda</option>
                 <option value="Joe Ingles">Joe Ingles</option>
+                <option value="Aldrin Mariel Tatlonghari Delica">Aldrin Mariel Tatlonghari Delica</option>
                 </select>
             </div>
             
             <div class="form-row-child">
                 <label for="inputPlaceholder3">Employee Salary</label>
-                <input type="Placeholder" class="form-control" id="inputPlaceholder3" value="Php 1000.00" readonly name="val2">
+                <input type="Placeholder" class="form-control" id="inputPlaceholder3" value="Php 1000000.00" readonly name="val2">
             </div>
         </div>
         <div class="form-row">

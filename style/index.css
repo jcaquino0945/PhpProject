@@ -131,3 +131,7 @@ p {
 .employees {
     padding: 1.5rem;
 }
+.edit-icon:hover {
+    color: gray;
+    cursor: pointer;
+}
