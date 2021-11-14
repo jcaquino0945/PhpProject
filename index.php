@@ -13,13 +13,13 @@
 // }
 // echo "Connected successfully";
 
-// // // sql to create table
-// // $sql = "CREATE TABLE employees (
-// //     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-// //     displayName VARCHAR(30) NOT NULL,
-// //     salary FLOAT(10,2) NOT NULL,
-// //     employedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-// //     )";
+// // sql to create table
+// $sql = "CREATE TABLE employees (
+//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//     displayName VARCHAR(30) NOT NULL,
+//     salary FLOAT(10,2) NOT NULL,
+//     employedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+//     )";
 
 // // $sql = "INSERT INTO employees (displayName, salary)
 // // VALUES ('Keanu Reeves', 1000000)";
