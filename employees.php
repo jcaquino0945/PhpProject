@@ -80,16 +80,25 @@ $conn->close();
         <p>Vague</p>
     </div>
     <div class="navbar-links">
-    <a href="about_us.php">About us</a>
     <a href="home.php">Salary Calculator</a>
             <a href="employees.php" style="color:red">Employees</a>
+            <a href="about_us.php">About us</a>
+
     </div> 
 </nav>
 
 <main class="main">
+
+<div class="title-flex">
 <div class="form-title">
     <p class="display-6">Employee List</p>
 </div>
+<div class="form-button">
+    <a href="addEmployee.php"><button type="button" class="btn btn-danger">Add Employee</button></a>
+</div>
+
+</div>
+
 <div class="employees">
       <table class="table table-hover">
       <thead>

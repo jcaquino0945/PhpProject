@@ -51,11 +51,7 @@ p {
     width: 100%;
     padding: 1.5rem;
 }
-.form-title {
-    margin-top: 1.5rem;
-    padding-left: 1.5rem;
-    font-family: 'Adamina', serif;
-}
+
 .form-subtitle {
     margin-top: 1.5rem;
     padding-left: 1.5rem;
@@ -132,6 +128,10 @@ p {
     padding: .6rem 3rem;
     margin: 0;
 }
+.my-btn-2 {
+    padding: .6rem 3rem;
+    margin: 2.5rem 1.5rem;
+}
 .employees {
     padding: 1.5rem;
 }
@@ -145,4 +145,25 @@ p {
     align-items: center;
     min-height: 100vh;
     background-color: black;
+}
+.title-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1.5rem;
+    font-family: 'Adamina', serif;
+    width: 50%;
+}
+.form-button {
+    display: flex;
+    padding-right: 1.5rem;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
 }
