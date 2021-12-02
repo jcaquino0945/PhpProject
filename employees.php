@@ -81,7 +81,7 @@ $conn->close();
     </div>
     <div class="navbar-links">
     <a href="about_us.php">About us</a>
-    <a href="index.php">Salary Calculator</a>
+    <a href="home.php">Salary Calculator</a>
             <a href="employees.php" style="color:red">Employees</a>
     </div> 
 </nav>
@@ -137,25 +137,7 @@ $conn->close();
         </button>
       </div>
       <div class="modal-body">
-        <!-- #####Start of the contents of the Modal########################### -->
         
-        <!-- employee_Name
-        employee_Salary
-        employee_dateOfEmployment -->
-
-        <!-- if(isset($_GET['id'])){
-
-        } -->
-
-     
-
-
-        
-        
-          
-        </form>
-        <!-- #####End of the contents of the Modal########################### -->
-
       </div>
       <div class="modal-footer">
         <div class="close-modal-button">

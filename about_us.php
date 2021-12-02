@@ -29,7 +29,7 @@
         </div>
         <div class="navbar-links">
         <a href="about_us.php">About us</a>
-        <a href="index.php">Salary Calculator</a>
+        <a href="home.php">Salary Calculator</a>
         <a href="employees.php" style="color:red">Employees</a>
       
                 
