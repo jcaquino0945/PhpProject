@@ -64,7 +64,6 @@ p {
 }
 .form-row {
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 100%;
     flex-direction: row;
@@ -126,7 +125,7 @@ p {
 }
 .my-btn {
     padding: .6rem 3rem;
-    margin: 0;
+    margin: 5rem;
 }
 .employees {
     padding: 1.5rem;
@@ -135,3 +134,19 @@ p {
     color: gray;
     cursor: pointer;
 }
+
+.form-sample {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+.form1 {
+    width: 50%;
+}
+
+.form-row-child1 {
+    height: 100%;
+    padding: 2.5rem 1.5rem 0 1.5rem;
+}
+

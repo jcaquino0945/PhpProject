@@ -12,7 +12,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-// // sql to create table
+// sql to create table
 // $sql = "CREATE TABLE employees (
 //     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 //     displayName VARCHAR(30) NOT NULL,
@@ -20,14 +20,14 @@ if ($conn->connect_error) {
 //     employedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 //     )";
 
-// $sql = "INSERT INTO employees (displayName, salary)
-// VALUES ('Keanu Reeves', 1000000)";
+$sql = "INSERT INTO employees (displayName, salary)
+VALUES ('Keanu Reeves', 1000000)";
 
-// if ($conn->query($sql) === TRUE) {
-//     echo " employees has been created";
-//   } else {
-//     echo "Error creating employee: " . $conn->error;
-//   }
+if ($conn->query($sql) === TRUE) {
+    echo " employees has been created";
+  } else {
+    echo "Error creating employee: " . $conn->error;
+  }
 $sql = "SELECT * FROM employees";
 $result = $conn->query($sql);
 
@@ -91,11 +91,11 @@ $conn->close();
             <div class="form-row-child">
                 <label for="inputPlaceholder4">Employee Name</label>
                 <select class="form-select" aria-label="Default select example" name="val1">
-                <option selected>Select Employee</option>
-                <option value="Miguel Aquino">Miguel Aquino</option>
-                <option value="Hans Nituda">Hans Nituda</option>
-                <option value="Joe Ingles">Joe Ingles</option>
-                <option value="Aldrin Mariel Tatlonghari Delica">Aldrin Mariel Tatlonghari Delica</option>
+                    <option selected>Select Employee</option>
+                    <option value="Miguel Aquino">Miguel Aquino</option>
+                    <option value="Hans Nituda">Hans Nituda</option>
+                    <option value="Joe Ingles">Joe Ingles</option>
+                    <option value="Aldrin Mariel Tatlonghari Delica">Aldrin Mariel Tatlonghari Delica</option>
                 </select>
             </div>
             
@@ -106,17 +106,97 @@ $conn->close();
         </div>
         <div class="form-row">
             <div class="form-row-child">
-                <label for="inputPlaceholder3">Absences (Day/s)</label>
-                <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="2 Days" name="val3">
-            </div>
-            <div class="form-row-child">
-               
-                    <input type="submit" class="btn btn-danger my-btn">
-               
+                <label for="inputPlaceholder4">Month</label>
+                    <select class="form-select" aria-label="Default select example" name="val2">
+                    <option selected disabled>Select Month</option>
+                    <option value="January">January</option>
+                    <option value="Febuary">Febuary</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                </select>
             </div>
         </div>
+
+        <div class="form-row"> 
+            <div class="form1">
+                <div class="mt-5 form-subtitle">
+                    <p>Working Hours</p>
+                </div>
+
+                <div class="form-row-child1">
+                    <label for="inputPlaceholder3">Regular</label>
+                    <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="(month) max hours = number" name="val3">
+                </div>
+            </div>
+
+            <div class="form1">
+                <div class="mt-5 form-subtitle">
+                    <p>Overtime</p>
+                </div>
+
+                <div class="form-row-child1">
+                    <label for="inputPlaceholder3">Regular</label>
+                    <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="2 hrs" name="val3">
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 d-flex">
+            <div class="w-50">
+                <div class="mt-5 form-subtitle">
+                    <p>Holiday</p>
+                </div>
+
+                <div class="p-4">
+                    <label for="inputPlaceholder3">Regular</label>
+                    <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="2 hrs" name="val3">
+                </div>
+                
+                <div class="p-4">
+                    <label for="inputPlaceholder3">Special</label>
+                    <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="2 hrs" name="val3">
+                </div>
+            </div>
+            <div class="form-row-child">
+                <input type="submit" class="btn btn-danger my-btn">
+            </div>
+        </div>
+        
+        
+
+
+        
+
+        <!-- <div class="mt-5 form-subtitle">
+            <p>Working Hours</p>
+        </div>
+
+        <div class="form-row">
+            <div class="form-row-child">
+                <label for="inputPlaceholder3">Regular</label>
+                <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="2 hrs" name="val3">
+            </div>
+
+            
+
+            <div class="form-row-child">
+                <label for="inputPlaceholder3">Overtime</label>
+                <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="2 hrs" name="val3">
+            </div>
+        </div> -->
+
+
         </form>
     </main>
+                    <!-- <input type="submit" class="btn btn-danger my-btn"> -->
 
        <!-- <div class="half-form">
             <div class="half-form-left">
