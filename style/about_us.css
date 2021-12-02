@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar {
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-logo {
+    width: 50%;
+    font-family: 'Adamina', serif;
+}
+.navbar-logo p{
+    font-size: 1.5rem;
+    padding-left: 3rem;
+    text-transform: uppercase;
+}
+.navbar-links {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 3rem;
+    
+}
+.navbar-links a {
+    font-size: .8rem;
+    font-family: 'Libre Franklin', sans-serif;
+    padding-left: 1.5rem;
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.grid-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 35vh;
+    background-color: #252D38;
+    
+}
+.grid-header h1 {
+    color: white;
+    font-family: 'Adamina'; 
+    border-bottom: 2px solid white;
+    font-size: 80px;
+    margin-top: 4%;
+}
+.grid-header hr {
+    color: white;
+}
+.group-photo {
+    display: block;
+    margin: 60px auto 50px auto;
+    /* margin: 60px auto 50px auto;   */
+    max-width: 75%;
+    max-height: 75%;
+}
+
+.text-title {
+    color: black;
+}
+.text-content {
+    margin-bottom: 250px;
+}
+.text-title {
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Adamina';
+}
+.text-paragraph {
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
+    font-family: 'Adamina';
+    font-size: 14px;
+}
+.members-label {
+    font-size: 60px;
+    text-align: center;
+    font-family: 'Adamina';
+    margin-bottom: 1%;
+}
+.profiles-container {
+    display: grid;
+    grid-template-columns: 50% 50%;     
+    text-align: center;
+    justify-content: center;
+    margin: auto 25% auto 25%;
+   
+}
+.profiles p {
+    margin: auto 15% auto 15%;
+    max-width: 70%;
+   max-height: 10%;
+   text-align: justify-center;
+}
+/* .individual-photo {
+   width: 60%;
+   width: 60%;
+   height: 60%;
+   margin-top: 20%;
+} */
+.individual-devdan {
+    max-width: 60%;
+   max-height: 40%;
+   margin-top: 20%;
+}
+.individual-jc {
+    max-width: 60%;
+    max-height: 40%;
+    margin-top: 20%;
+}
+.individual-hans {
+    max-width: 60%;
+    max-height: 40%;
+    margin-top: 20%;
+}
+.individual-aldrin {
+    max-width: 60%;
+    max-height: 40%;
+    margin-top: 20%;
+}
+
+
+
+
