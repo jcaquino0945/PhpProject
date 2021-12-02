@@ -147,11 +147,34 @@ p {
     background-color: black;
 }
 .form-group {
-    justify-content: center;
-    align-items: center;
-    margin-top: 500px;
+    
+}
+.input-fields {
+    text-align: center;
+    margin-right: 35%;
+    margin-left: 35%;
+    vertical-align: middle;
+}
+.form-group p {
+    font-size: 30px;
+    
 } 
 .form-control {
     justify-content: center;
     align-items: center;
+
+    height: auto;
+    font-size: 24px;
+    text-align: center;
+    /* box-shadow: 1px 2px;  */
 }
+.buttons {
+    text-align: center;
+    margin-top: 2%;
+    height: auto;
+    font-size: 40px;
+}
+.return {
+    margin-right: 5%;
+}
+
