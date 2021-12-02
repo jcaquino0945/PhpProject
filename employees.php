@@ -80,7 +80,8 @@ $conn->close();
         <p>Vague</p>
     </div>
     <div class="navbar-links">
-    <a href="home.php">Salary Calculator</a>
+    <a href="about_us.php">About us</a>
+    <a href="index.php">Salary Calculator</a>
             <a href="employees.php" style="color:red">Employees</a>
     </div> 
 </nav>
@@ -124,6 +125,7 @@ $conn->close();
 </div>
 </main>
 
+
 <!-- #####Start of Edit Modal########################### -->
 <div class="modal fade" id="editEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -136,19 +138,52 @@ $conn->close();
       </div>
       <div class="modal-body">
         <!-- #####Start of the contents of the Modal########################### -->
-        <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1"> Name </label>
-            <input type="text" class="form-control" id="employee_Name"  placeholder="Enter email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1"> Salary </label>
-            <input type="text" class="form-control" id="employee_Salary"  placeholder="Enter email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1"> Date of Employment </label>
-            <input type="text" class="form-control" id="employee_dateOfEmployment"  placeholder="Enter email">
-          </div>
+        
+        <!-- employee_Name
+        employee_Salary
+        employee_dateOfEmployment -->
+
+        <!-- if(isset($_GET['id'])){
+
+        } -->
+
+     
+
+
+        <form method="POST" action="">
+
+        <?php 
+          $conn = new mysqli($servername, $username, $password,$dbname); 
+        
+          if(isset($_POST['id'])) {
+            $id = $_POST['id'];
+            $query = "SELECT * FROM employees WHERE id='id' ";
+            $query_run = mysqli_query($conn, $query);
+
+              foreach($query_run as $row) {
+                // echo $row['displayName'];
+                ?>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1"> Name </label>
+                      <input type="text" class="form-control" id="displayName" value="<?= $row['displayName'];?>">
+                    
+                    
+                      <label for="exampleInputEmail1"> Salary </label>
+                      <input type="text" class="form-control" id="salary" value="<?= $row['salary'];?>">
+                    
+                    
+                      <label for="exampleInputEmail1"> Date of Employment </label>
+                      <input type="text" class="form-control" id="employedAt" value="<?= $row['employedAt'];?>">
+                    </div>
+                <?php
+
+              }
+          }
+          
+        ?>
+
+        
+          
         </form>
         <!-- #####End of the contents of the Modal########################### -->
 
