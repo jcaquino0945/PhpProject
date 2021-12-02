@@ -64,7 +64,6 @@ p {
 }
 .form-row {
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 100%;
     flex-direction: row;
@@ -126,7 +125,7 @@ p {
 }
 .my-btn {
     padding: .6rem 3rem;
-    margin: 0;
+    margin: 5rem;
 }
 .my-btn-2 {
     padding: .6rem 3rem;
@@ -139,31 +138,19 @@ p {
     color: gray;
     cursor: pointer;
 }
-.grid-header {
+
+.form-sample {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: black;
-}
-.title-flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    flex-direction: row;
 }
 
-.form-title {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 1.5rem;
-    font-family: 'Adamina', serif;
+.form1 {
     width: 50%;
 }
-.form-button {
-    display: flex;
-    padding-right: 1.5rem;
-    justify-content: flex-end;
-    align-items: center;
-    width: 50%;
+
+.form-row-child1 {
+    height: 100%;
+    padding: 2.5rem 1.5rem 0 1.5rem;
 }
+

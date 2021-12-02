@@ -1,4 +1,17 @@
 <?php
+$salaryPerHour = $_POST["salaryHr"];
+$workingHours = $_POST["workingHrs"];
+$overtimeHours = $_POST["ovtHrs"];
+$holidayRegularHours = $_POST["holidayRegHrs"];
+$holidaySpecialHours = $_POST["holidaySpecHrs"];
+
+$regularPay = $salaryPerHour * $workingHours;
+$overtimePay = $overtimeHours * ($salaryPerHour * 1.25);
+$regularHolidayPay = $holidayRegularHours * ($salaryPerHour * 2);
+$specialHolidayPay = $holidaySpecialHours * ($salaryPerHour * 1.3);
+
+$totalPay = $regularPay + $overtimePay + $regularHolidayPay + $specialHolidayPay;
+
 // $cars = array (
 //     array("Volvo",22,18),
 //     array("BMW",15,13),
@@ -52,9 +65,12 @@
 </nav>
 
 
-Value 1: <?php echo $_GET["val1"]; ?><br>
-Value 2: <?php echo $_GET["val2"]; ?><br>
-Value 3: <?php echo $_GET["val3"]; ?><br>
+Regular Pay: <?php echo $regularPay ?><br>
+Overtime Pay: <?php echo  $overtimePay?><br>
+Regular Hoidlay Pay: <?php echo  $regularHolidayPay?><br>
+Sepcial Holiday Pay: <?php echo  $specialHolidayPay?><br>
+Total Pay: <?php echo  $totalPay?><br>
+
 
 </html>    <!-- <form action="welcome_get.php" method="get">
         Name: <input type="text" name="name"><br>
