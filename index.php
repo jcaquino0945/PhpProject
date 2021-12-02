@@ -1,182 +1,107 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "vogueDB";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password,$dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
-
-// // sql to create table
-// $sql = "CREATE TABLE employees (
-//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-//     displayName VARCHAR(30) NOT NULL,
-//     salary FLOAT(10,2) NOT NULL,
-//     employedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-//     )";
-
-// $sql = "INSERT INTO employees (displayName, salary)
-// VALUES ('Keanu Reeves', 1000000)";
-
-// if ($conn->query($sql) === TRUE) {
-//     echo " employees has been created";
-//   } else {
-//     echo "Error creating employee: " . $conn->error;
-//   }
-$sql = "SELECT * FROM employees";
-$result = $conn->query($sql);
-
-// if ($result->num_rows > 0) {
-//   // output data of each row
-//   while($row = $result->fetch_assoc()) {
-//     echo "id: " . $row["id"]. " - Name: " . $row["displayName"]. " " . $row["salary"]. "<br>";
-//   }
-// } else {
-//   echo "0 results";
-// }
-$conn->close();
-
+   ob_start();
+   session_start();
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Adamina&family=Libre+Franklin&display=swap" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style/index.css">
-
-    <title>Salary Calculator</title>
+	<meta charset="utf-8">
+	<meta name="author" content="Kodinger">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>My Login Page</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style/my-login.css">
 </head>
 
-<body>
-    <div class="ads">
+<body class="my-login-page">
+<?php        
 
-    </div>
+            $err1 = '';
+            $err2 = '';
 
-    <nav class="navbar shadow">
-        <div class="navbar-logo">
-            <p>Vague</p>
-        </div>
-        <div class="navbar-links">
-        <a href="index.php">Salary Calculator</a>
-            <a href="employees.php" style="color:red">Employees</a>
-        </div> 
-    </nav>
+            if (isset($_POST['login']) && !empty($_POST['username']) 
+               && !empty($_POST['password'])) {
+				
+               if ($_POST['username'] == 'admin' && 
+                  $_POST['password'] == '123') {
+                  $_SESSION['valid'] = true;
+                  $_SESSION['timeout'] = time();
+                  $_SESSION['username'] = 'tutorialspoint';
+                
+                
+                echo 'You have entered valid use name and password';
+                header("location:home.php");
+                exit;
 
-    <main class="main">
-    <form action="welcome_get.php" method="get">
-        <div class="form-title">
-            <p class="display-6">Title Calculator</p>
-        </div>
 
-        <div class="form-subtitle">
-            <p>Employee Information</p>
-        </div>
+               }else {
+                echo 'You have entered invalid use name and password';
 
-        <div class="form-row">
-            <div class="form-row-child">
-                <label for="inputPlaceholder4">Employee Name</label>
-                <select class="form-select" aria-label="Default select example" name="val1">
-                <option selected>Select Employee</option>
-                <option value="Miguel Aquino">Miguel Aquino</option>
-                <option value="Hans Nituda">Hans Nituda</option>
-                <option value="Joe Ingles">Joe Ingles</option>
-                <option value="Aldrin Mariel Tatlonghari Delica">Aldrin Mariel Tatlonghari Delica</option>
-                </select>
-            </div>
+                  $err1 = 'Invalid username';
+                  $err2 = 'Invalid password';
+
+               }
+            }
+         ?>
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-md-center h-100">
+				<div class="card-wrapper">
+					<div class="brand">
+						
+					</div>
+					<div class="card fat">
+						<div class="card-body">
+							<h4 class="card-title">Login</h4>
+							<form method="post" class="my-login-validation" novalidate=""role = "form" 
+            action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); 
+            ?>">
             
-            <div class="form-row-child">
-                <label for="inputPlaceholder3">Employee Salary</label>
-                <input type="Placeholder" class="form-control" id="inputPlaceholder3" value="Php 1000000.00" readonly name="val2">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-row-child">
-                <label for="inputPlaceholder3">Absences (Day/s)</label>
-                <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="2 Days" name="val3">
-            </div>
-            <div class="form-row-child">
-               
-                    <input type="submit" class="btn btn-danger my-btn">
-               
-            </div>
-        </div>
-        </form>
-    </main>
+								<div class="form-group">
+									<label for="email">Username</label>
+									<input id="email" type="email" class="form-control" name="username" value="" required autofocus placeholder = "admin">
+									<div class="invalid-feedback">
+                                    <p><?php echo $err1; ?></p>
+									</div>
+								</div>
 
-       <!-- <div class="half-form">
-            <div class="half-form-left">
-                <div class="half-form-subtitle">
-                     <p>Employee Information</p>
-                </div>
-                <div class="half-form-child">
-                    <label for="inputPlaceholder3">Title</label>
-                    <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="Placeholder" name="val5">
-                </div>
-                <div class="half-form-child">
-                    <label for="inputPlaceholder3">Title</label>
-                    <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="Placeholder" name="val6">
-                </div>
-                <div class="half-form-child">
-                    <label for="inputPlaceholder3">Title</label>
-                    <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="Placeholder" name="val7">
-                </div>
-            </div>
-            <div class="half-form-right">
-                <div class="half-form-subtitle">
-                     <p>Employee Information</p>
-                </div>
-                <div class="half-form-child">
-                    <label for="inputPlaceholder3">Title</label>
-                    <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="Placeholder" name="val8">
-                </div>
-                <div class="half-form-child">
-                    <label for="inputPlaceholder3">Title</label>
-                    <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="Placeholder" name="val9">
-                </div>
-            </div>
-        </div>
+								<div class="form-group">
+									<input id="password" type="password" class="form-control" name="password" required data-eye>
+								    <div class="invalid-feedback">
+                                    <p><?php echo $err2; ?></p>
+							    	</div>
+								</div>
 
-        <div class="half-form">
-        <div class="half-form-left">
-                <div class="half-form-subtitle">
-                     <p>Employee Information</p>
-                </div>
-                <div class="half-form-child">
-                    <label for="inputPlaceholder3">Title</label>
-                    <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="Placeholder" name="val10">
-                </div>
-                <div class="half-form-child">
-                    <label for="inputPlaceholder3">Title</label>
-                    <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="Placeholder" name="val11">
-                </div>
-            </div>
-            <div class="half-form-right-2">
-                <div class="half-form-child-2">
-                    <input type="submit" class="btn btn-danger my-btn">
-                </div>
-            </div>
-        </div> -->
+								<div class="form-group">
+									<div class="custom-checkbox custom-control">
+										<input type="checkbox" name="remember" id="remember" class="custom-control-input">
+										<label for="remember" class="custom-control-label">Remember Me</label>
+									</div>
+								</div>
 
-       
+								<div class="form-group m-0">
+									<button type="submit" class="btn btn-block" name = "login" style="background-color: red; color:white;">
+										Login
+									</button>
+								</div>
+								<div class="mt-4 text-center">
+									Don't have an account? <a href="register.html" style="color:red">Create One</a>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="footer">
+						Copyright &copy; 2021 &mdash; Vague 
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="js/my-login.js"></script>
 </body>
-
 </html>
