@@ -51,11 +51,7 @@ p {
     width: 100%;
     padding: 1.5rem;
 }
-.form-title {
-    margin-top: 1.5rem;
-    padding-left: 1.5rem;
-    font-family: 'Adamina', serif;
-}
+
 .form-subtitle {
     margin-top: 1.5rem;
     padding-left: 1.5rem;
@@ -68,7 +64,6 @@ p {
 }
 .form-row {
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 100%;
     flex-direction: row;
@@ -130,7 +125,11 @@ p {
 }
 .my-btn {
     padding: .6rem 3rem;
-    margin: 0;
+    margin: 5rem;
+}
+.my-btn-2 {
+    padding: .6rem 3rem;
+    margin: 2.5rem 1.5rem;
 }
 .employees {
     padding: 1.5rem;
@@ -139,19 +138,19 @@ p {
     color: gray;
     cursor: pointer;
 }
-.grid-header {
+
+.form-sample {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: black;
+    width: 100%;
+    flex-direction: row;
 }
-.form-group {
-    justify-content: center;
-    align-items: center;
-    margin-top: 500px;
-} 
-.form-control {
-    justify-content: center;
-    align-items: center;
+
+.form1 {
+    width: 50%;
 }
+
+.form-row-child1 {
+    height: 100%;
+    padding: 2.5rem 1.5rem 0 1.5rem;
+}
+

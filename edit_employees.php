@@ -37,6 +37,8 @@ $conn->close();
     <link rel="stylesheet" href="./style/edit_employees.css">
     <title>Document</title>
 </head>
+
+
 <body>
     <div class="ads">
 
@@ -53,23 +55,38 @@ $conn->close();
         </div> 
     </nav>
 
-    <?php while($row = $result->fetch_assoc()) { ?>
-    <div class="form-group">
-            <div class="input-fields">
-                <p> Name <input type="text" class="form-control shadow" id="displayName" value="<?= $row["displayName"] ?>"> </p>
-                <p> Salary <input type="text" class="form-control shadow" id="salary" value="<?= $row["salary"] ?>"> </p>
-                <p> Date of Employment <input type="text" class="form-control shadow" id="employedAt" value="<?= $row["employedAt"] ?>"> </p>
-            </div>
-            
+    <form action="update_employees_action.php" method="POST">
+        
+        <div class="form-group">
+                <div class="input-fields">
+                    <p> Name <input type="text" class="form-control shadow" id="displayName" value=""> </p>
+                    <p> Salary <input type="text" class="form-control shadow" id="salary" value=""> </p>
+                    <p> Date of Employment <input type="text" class="form-control shadow" id="employedAt" value=""> </p>
+                </div>
+                
 
-            <div class="buttons">
-                <a href="employees.php" class="">
-                <button type="button" class="btn btn-dark return" p style="font-size: 25px"> Return </button>
-                </a>
-                <button type="button" class="btn btn-dark" p style="font-size: 25px"> Save changes </button>
-            </div>
-    </div>
-    <?php }; ?>
+                <div class="buttons">
+                    <a href="employees.php" class="">
+                    <button type="button" class="btn btn-dark return" p style="font-size: 25px"> Return </button>
+                    </a>
+                    <button type="button" class="btn btn-dark" p style="font-size: 25px" id="updateData"> Save changes </button>
+                </div>
+        </div>
+        
+    </form>
+
+    <?php
+
+        if(isset($_POST['updateData'])) {
+            $employeeName = $_POST['displayName'];
+            $query="UPDATE 'employees' SET 'displayName'"
+        }
+    ?>
+
+    
+
+
+    
     
 </body>
 </html>
