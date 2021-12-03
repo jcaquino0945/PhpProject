@@ -31,7 +31,7 @@ $conn->close();
     <link href="https://fonts.googleapis.com/css2?family=Adamina&family=Libre+Franklin&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="../style/index.css">
 
     <title>Salary Calculator</title>
 </head>
@@ -66,7 +66,7 @@ $conn->close();
         <div class="form-row">
             <div class="form-row-child">
                 <label for="inputPlaceholder4">Employee Name</label>
-                <select class="form-select" aria-label="Default select example" name="val1">
+                <select class="form-select" aria-label="Default select example" name="displayName" id="displayName">
                     <option selected>Select Employee</option>
                     <?php while($row = $result->fetch_assoc()) { ?>
                     <option value="<?php echo $row['displayName']; ?>"><?= $row["displayName"] ?></option>
@@ -76,7 +76,7 @@ $conn->close();
             
             <div class="form-row-child">
                 <label for="inputPlaceholder4">Month</label>
-                    <select class="form-select" aria-label="Default select example" name="val2">
+                    <select class="form-select" aria-label="Default select example" name="month" id="month">
                     <option selected disabled>Select Month</option>
                     <option value="January">January</option>
                     <option value="Febuary">Febuary</option>
@@ -96,7 +96,7 @@ $conn->close();
         </div>
         <div class="form-row">
             <div class="form-row-child">
-                <input type="submit" class="btn btn-danger form1-btn">
+                <input type="submit" class="btn btn-danger form1-btn" value="Proceed">
             </div>
             <div class="form-row-child">
 
