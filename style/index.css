@@ -49,14 +49,17 @@ p {
 .main {
     height: auto;
     width: 100%;
-    padding: 1.5rem;
+    padding: 2.5rem;
 }
-
+.form-title {
+    padding-left: 1.5rem;
+}
 .form-subtitle {
     margin-top: 1.5rem;
     padding-left: 1.5rem;
     font-family: 'Libre Franklin', sans-serif;
 }
+
 .form-subtitle p {
     color: red;
     font-weight: 600;
@@ -64,7 +67,8 @@ p {
 }
 .form-row {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    justify-content: flex-end;
     width: 100%;
     flex-direction: row;
 }
@@ -127,9 +131,13 @@ p {
     padding: .6rem 3rem;
     margin: 5rem;
 }
+.form1-btn {
+    padding: .6rem 4rem;
+}
 .my-btn-2 {
     padding: .6rem 3rem;
     margin: 2.5rem 1.5rem;
+    height: 100%;
 }
 .employees {
     padding: 1.5rem;

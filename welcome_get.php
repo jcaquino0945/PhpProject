@@ -1,5 +1,5 @@
 <?php
-$salaryPerHour = $_POST["salaryHr"];
+$salaryPerHour = $_POST["salaryHr"]; //200
 $workingHours = $_POST["workingHrs"];
 $overtimeHours = $_POST["ovtHrs"];
 $holidayRegularHours = $_POST["holidayRegHrs"];
@@ -11,6 +11,8 @@ $regularHolidayPay = $holidayRegularHours * ($salaryPerHour * 2);
 $specialHolidayPay = $holidaySpecialHours * ($salaryPerHour * 1.3);
 
 $totalPay = $regularPay + $overtimePay + $regularHolidayPay + $specialHolidayPay;
+
+
 
 // $cars = array (
 //     array("Volvo",22,18),

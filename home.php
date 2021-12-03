@@ -20,16 +20,16 @@ if ($conn->connect_error) {
 //     employedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 //     )";
 
-$sql = "INSERT INTO employees (displayName, salary)
-VALUES ('Keanu Reeves', 1000000)";
+// $sql = "INSERT INTO employees (displayName, salary)
+// VALUES ('Keanu Reeves', 1000000)";
 
-if ($conn->query($sql) === TRUE) {
-    echo " employees has been created";
-  } else {
-    echo "Error creating employee: " . $conn->error;
-  }
-$sql = "SELECT * FROM employees";
-$result = $conn->query($sql);
+// if ($conn->query($sql) === TRUE) {
+//     echo " employees has been created";
+//   } else {
+//     echo "Error creating employee: " . $conn->error;
+//   }
+// $sql = "SELECT * FROM employees";
+// $result = $conn->query($sql);
 
 // if ($result->num_rows > 0) {
 //   // output data of each row
@@ -75,7 +75,7 @@ $conn->close();
         <a href="home.php" style="color:red">Salary Calculator</a>
             <a href="employees.php">Employees</a>
             <a href="about_us.php">About us</a>
-
+            <a href="form1.php">JC</a>
         </div> 
     </nav>
 
