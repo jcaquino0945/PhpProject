@@ -21,6 +21,7 @@ $basePay = $_POST["basePay"];
 $workingHours = $_POST["workingHours"];
 $salaryPerHour = $_POST["salaryPerHour"];
 $payFor13thMonth = $_POST["payFor13thMonth"];
+$deminimis = 3100;
 
 $workingHoursMinusHolidays = $workingHours - (($holidayRegularDays * 8) + ($holidaySpecialDays * 8));
 $workingHoursMinusHolidaysPay = $salaryPerHour * $workingHoursMinusHolidays;
@@ -33,7 +34,7 @@ $overtimeSpecialPay =  $salaryPerHour * ($overtimeSpecialHours * 1.3);
 // 168 - 8 - 8
 // 152
 
-$payAfterAdditions = $workingHoursMinusHolidaysPay + $regularHolidayPay + $specialHolidayPay + $overtimeNormalPay + $overtimeSpecialPay + $payFor13thMonth;
+$payAfterAdditions = $workingHoursMinusHolidaysPay + $regularHolidayPay + $specialHolidayPay + $overtimeNormalPay + $overtimeSpecialPay + $payFor13thMonth + $deminimis;
 
 echo $payAfterAdditions;
 
