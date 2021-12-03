@@ -12,65 +12,96 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM employees";
-$result = $conn->query($sql);
+// $sql = "SELECT * FROM employees";
+// $result = $conn->query($sql);
 // $conn->close();
 
 $regHolidays = [0];
 $specHolidays = [0];
-
+$payFor13thMonth = 0;
 $month = $_POST["month"]; //current month
 $employeeName = $_POST["displayName"];
 echo $employeeName;
 
-// $getEmployee = mysqli_query($conn,"SELECT * from employees WHERE displayName = '$employeeName'"); // delete query
+$result = mysqli_query($conn, "SELECT * FROM employees WHERE displayName='$employeeName' LIMIT 1");
+$row = mysqli_fetch_assoc($result);
 
-$result = $conn->query($employeeName);
+$displayName = $row['displayName'];
+$salaryPerHour = $row['salary'];
+$basePay = 0;
+$workingHours = 0;
+echo $displayName;
+echo $salaryPerHour;
 
 switch ($month) {
     case "January":
         $regHolidays = [0,1];
+        $basePay = $salaryPerHour * 168;
+        $workingHours = 168;
         break;
     case "Febuary":
         $specHolidays = [0,1];
+        $basePay = $salaryPerHour * 152;
+        $workingHours = 152;
         break;
     case "March":
         $regHolidays = [0];
         $specHolidays = [0];
+        $basePay = $salaryPerHour * 176;
+        $workingHours = 176;
         break;
     case "April":
         $regHolidays = [0,1,2];
         $specHolidays = [0,1];
+        $basePay = $salaryPerHour * 176;
+        $workingHours = 176;
         break;
     case "May":
         $regHolidays = [0,1];
+        $basePay = $salaryPerHour * 160;
+        $workingHours = 160;
         break;
     case "June":
         $regHolidays = [0,1];
+        $basePay = $salaryPerHour * 176;
+        $workingHours = 176;
         break;
     case "July":
         $regHolidays = [0];
         $specHolidays = [0];
+        $basePay = $salaryPerHour * 176;
+        $workingHours = 176;
         break;
     case "August":
         $regHolidays = [0,1];
         $specHolidays = [0,1];
+        $basePay = $salaryPerHour * 168;
+        $workingHours = 168;
         break;
     case "September":
         $regHolidays = [0];
         $specHolidays = [0];
+        $basePay = $salaryPerHour * 168;
+        $workingHours = 168;
         break;
     case "October":
         $regHolidays = [0];
         $specHolidays = [0];
+        $basePay = $salaryPerHour * 168;
+        $workingHours = 168;
         break;
     case "November":
         $regHolidays = [0,1];
         $specHolidays = [0,1];
+        $basePay = $salaryPerHour * 152;
+        $workingHours = 152;
         break;
     case "December":
         $regHolidays = [0,1,2];
         $specHolidays = [0,1];
+        $basePay = $salaryPerHour * 176;
+        $workingHours = 176;
+        $payFor13thMonth = $salaryPerHour * 176;;
         break;
 }
 echo $month;
@@ -119,7 +150,7 @@ foreach ($specHolidays as $value) {
     </nav>
 
     <main class="main">
-    <form action="form2.php" method="post">
+    <form action="form3.php" method="post">
         <div class="form-title">
             <p class="display-6">Salary Calculator (Part 2)</p>
         </div>
@@ -153,11 +184,11 @@ foreach ($specHolidays as $value) {
                 </div>
                 <div class="half-form-child">
                     <label for="inputPlaceholder3">Normal (Per hour)</label>
-                    <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="Placeholder" name="val5">
+                    <input type="Placeholder" class="form-control" id="overtimeHoursNormal" placeholder="Placeholder" name="overtimeHoursNormal">
                 </div>
                 <div class="half-form-child">
                     <label for="inputPlaceholder3">Rest Day (Per hour)</label>
-                    <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="Placeholder" name="val6">
+                    <input type="Placeholder" class="form-control" id="overtimeHoursSpecial" placeholder="Placeholder" name="overtimeHoursSpecial">
                 </div>
             </div>
         </div>
@@ -168,14 +199,17 @@ foreach ($specHolidays as $value) {
                 </div>
                 <div class="half-form-child">
                     <label for="inputPlaceholder3">Day/s absent</label>
-                    <input type="Placeholder" class="form-control" id="inputPlaceholder3" placeholder="Placeholder" name="val5">
+                    <input type="Placeholder" class="form-control" id="absences" placeholder="Placeholder" name="absences">
                 </div>
             </div>
             <div class="half-form-right">
+                <input type="Placeholder" class="form-control" id="basePay"  name="basePay" style="display: none;" value="<?php echo $basePay; ?>">
+                <input type="Placeholder" class="form-control" id="workingHours"  name="workingHours" style="display: none;" value="<?php echo $workingHours; ?>">
+                <input type="Placeholder" class="form-control" id="salaryPerHour"  name="salaryPerHour" style="display: none;" value="<?php echo $salaryPerHour; ?>">
+                <input type="Placeholder" class="form-control" id="payFor13thMonth"  name="payFor13thMonth" style="display: none;" value="<?php echo $payFor13thMonth; ?>">
 
             </div>
         </div>
-
         <div class="form-row">
             <div class="form-row-child">
                 <input type="submit" class="btn btn-danger form1-btn" value="Proceed">
