@@ -4,6 +4,8 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "voguedb";
+$msg = '';
+$id = '';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password,$dbname);
@@ -16,8 +18,18 @@ echo "Connected successfully";
 
 $sql = "SELECT * FROM employees";
 $result = $conn->query($sql);
-$conn->close();
+
+
+// $name = '';
+// $salary = '';
+// $employedAt = '';
+// $displayName="";
+// $salary="";
+// $employedAt="";
+// $conn->close();
 ?>
+
+
 
 
 
@@ -55,13 +67,32 @@ $conn->close();
         </div> 
     </nav>
 
-    <form action="update_employees_action.php" method="POST">
-        
-        <div class="form-group">
+    <?php
+       if(isset($_GET['id'])) {
+        $id=$_GET['id'];
+        $select=mysqli_query($conn,"SELECT * FROM employees WHERE id=$id");
+        $row=mysqli_fetch_assoc($select);
+        $id = $row['id'];
+        $displayName=$row['displayName'];
+        $salary=$row['salary'];
+        $employedAt=$row['employedAt'];
+    }
+
+    
+    ?>
+
+    <form action="update.php" method="POST">
+  
+        <div class="form-group shadow">
                 <div class="input-fields">
-                    <p> Name <input type="text" class="form-control shadow" id="displayName" value=""> </p>
-                    <p> Salary <input type="text" class="form-control shadow" id="salary" value=""> </p>
-                    <p> Date of Employment <input type="text" class="form-control shadow" id="employedAt" value=""> </p>
+                <div class="edit-header">
+                <p style="color: white;"> Update Employee's Data </p>
+                </div>
+                
+                    <p style="padding-top: 3%;"> ID <input type="text" class="form-control shadow "  name="id" value="<?php echo $id; ?>"> </p>
+                    <p> Name <input type="text" class="form-control shadow"  name="displayName" value="<?php echo $displayName; ?>"> </p>
+                    <p> Salary <input type="text" class="form-control shadow"  name="salary" value="<?php echo $salary; ?>"> </p>
+                    <p> Date of Employment <input type="text" class="form-control shadow" name="employedAt" value="<?php echo $employedAt; ?>"> </p>
                 </div>
                 
 
@@ -69,24 +100,13 @@ $conn->close();
                     <a href="employees.php" class="">
                     <button type="button" class="btn btn-dark return" p style="font-size: 25px"> Return </button>
                     </a>
-                    <button type="button" class="btn btn-dark" p style="font-size: 25px" id="updateData"> Save changes </button>
+                    <input type="submit" class="btn btn-dark" p style="font-size: 25px" name="submit">
                 </div>
         </div>
         
     </form>
-
-    <?php
-
-        if(isset($_POST['updateData'])) {
-            $employeeName = $_POST['displayName'];
-            $query="UPDATE 'employees' SET 'displayName'"
-        }
-    ?>
-
-    
-
-
-    
+  
+   
     
 </body>
 </html>
