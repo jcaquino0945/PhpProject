@@ -1,4 +1,6 @@
 <?php
+include ('employeeClass.php');
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -21,7 +23,6 @@ $specHolidays = [0];
 $payFor13thMonth = 0;
 $month = $_POST["month"]; //current month
 $employeeName = $_POST["displayName"];
-echo $employeeName;
 
 $result = mysqli_query($conn, "SELECT * FROM employees WHERE displayName='$employeeName' LIMIT 1");
 $row = mysqli_fetch_assoc($result);
@@ -30,87 +31,98 @@ $displayName = $row['displayName'];
 $salaryPerHour = $row['salary'];
 $basePay = 0;
 $workingHours = 0;
-echo $displayName;
-echo $salaryPerHour;
+
 
 switch ($month) {
     case "January":
         $regHolidays = [0,1];
-        $basePay = $salaryPerHour * 168;
+        // $basePay = $salaryPerHour * 168;
         $workingHours = 168;
         break;
     case "Febuary":
         $specHolidays = [0,1];
-        $basePay = $salaryPerHour * 152;
+        // $basePay = $salaryPerHour * 152;
         $workingHours = 152;
         break;
     case "March":
         $regHolidays = [0];
         $specHolidays = [0];
-        $basePay = $salaryPerHour * 176;
+        // $basePay = $salaryPerHour * 176;
         $workingHours = 176;
         break;
     case "April":
         $regHolidays = [0,1,2];
         $specHolidays = [0,1];
-        $basePay = $salaryPerHour * 176;
+        // $basePay = $salaryPerHour * 176;
         $workingHours = 176;
         break;
     case "May":
         $regHolidays = [0,1];
-        $basePay = $salaryPerHour * 160;
+        // $basePay = $salaryPerHour * 160;
         $workingHours = 160;
         break;
     case "June":
         $regHolidays = [0,1];
-        $basePay = $salaryPerHour * 176;
+        // $basePay = $salaryPerHour * 176;
         $workingHours = 176;
         break;
     case "July":
         $regHolidays = [0];
         $specHolidays = [0];
-        $basePay = $salaryPerHour * 176;
+        // $basePay = $salaryPerHour * 176;
         $workingHours = 176;
         break;
     case "August":
         $regHolidays = [0,1];
         $specHolidays = [0,1];
-        $basePay = $salaryPerHour * 168;
+        // $basePay = $salaryPerHour * 168;
         $workingHours = 168;
         break;
     case "September":
         $regHolidays = [0];
         $specHolidays = [0];
-        $basePay = $salaryPerHour * 168;
+        // $basePay = $salaryPerHour * 168;
         $workingHours = 168;
         break;
     case "October":
         $regHolidays = [0];
         $specHolidays = [0];
-        $basePay = $salaryPerHour * 168;
+        // $basePay = $salaryPerHour * 168;
         $workingHours = 168;
         break;
     case "November":
         $regHolidays = [0,1];
         $specHolidays = [0,1];
-        $basePay = $salaryPerHour * 152;
+        // $basePay = $salaryPerHour * 152;
         $workingHours = 152;
         break;
     case "December":
         $regHolidays = [0,1,2];
         $specHolidays = [0,1];
-        $basePay = $salaryPerHour * 176;
+        // $basePay = $salaryPerHour * 176;
         $workingHours = 176;
         $payFor13thMonth = $salaryPerHour * 176;;
         break;
 }
-echo $month;
-foreach ($regHolidays as $value) {
-    echo $value, "\n";
-}
-foreach ($specHolidays as $value) {
-    echo $value, "\n";
-}
+class VagueEmployee extends Employee {
+        public function __construct($employee, $salaryPerHour,$workingHours) {
+            $this->employee = $employee;
+            $this->salaryPerHour = $salaryPerHour;
+            $this->workingHours = $workingHours;
+          }
+
+          public function intro() {
+            $basePay = $this->salaryPerHour * $this->workingHours;
+            echo "Employee {$this->employee} has a salary of {$this->salaryPerHour} per hour. {$this->employee} has a total salary of {$basePay} per month.";
+          }
+
+          public function getBasePay() {
+            return $this->salaryPerHour * $this->workingHours;
+        }
+
+      }
+      $employee = new Employee($employeeName,$salaryPerHour);
+      $vagueEmployee = new VagueEmployee($employeeName,$salaryPerHour,$workingHours);
 ?>
 
 <!doctype html>
@@ -202,7 +214,7 @@ foreach ($specHolidays as $value) {
                 </div>
             </div>
             <div class="half-form-right">
-                <input type="Placeholder" class="form-control" id="basePay"  name="basePay" style="display: none;" value="<?php echo $basePay; ?>">
+                <input type="Placeholder" class="form-control" id="basePay"  name="basePay" style="display: none;" value="<?php echo $vagueEmployee->getBasePay(); ?>">
                 <input type="Placeholder" class="form-control" id="workingHours"  name="workingHours" style="display: none;" value="<?php echo $workingHours; ?>">
                 <input type="Placeholder" class="form-control" id="salaryPerHour"  name="salaryPerHour" style="display: none;" value="<?php echo $salaryPerHour; ?>">
                 <input type="Placeholder" class="form-control" id="payFor13thMonth"  name="payFor13thMonth" style="display: none;" value="<?php echo $payFor13thMonth; ?>">
