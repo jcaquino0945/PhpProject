@@ -48,33 +48,46 @@
 
         <div class="text-content">
             <p class="text-title"> Hi! We're Group #6 from 4ITC</p>
-            <p class="text-paragraph"> Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum TEST </p>
+            <p class="text-paragraph"> A team of 4 making a change through software development </p>
         </div>
         <div class="members-label">
             <p> MEMBERS </p>
         </div>
 
-        <div class="profiles-container">
+        <div class="profiles-container shadow">
             
             <div class="profiles">
-                <img src="./style/images/devdan.jpg" alt="" class="individual-devdan" >
+                <img src="./style/images/devdan.jpg" alt="" class="individual-devdan shadow" >
+                <div class="text-template shadow">
                 <p> Devdan Romulo </p>
-                <p> I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum </p>
+                <p> Role: Developer </p>
+                <p>https://www.linkedin.com/in/devdan-romulo </p>
+                </div>
             </div>
             <div class="profiles">
-                <img src="./style/images/aldrin.png" alt="" class="individual-jc" >
+                <img src="./style/images/aldrin.png" alt="" class="individual-jc shadow" >
+                <div class="text-template shadow">
                 <p> Juan Carlos Aquino </p>
-                <p> I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum </p>
+                <p> Role: Developer </p>
+                <p>https://www.linkedin.com/in/jcm-aquino </p>
+                </div>
             </div>
             <div class="profiles">
-                <img src="./style/images/hans.jpg" alt="" class="individual-hans" >
+                <img src="./style/images/hans.jpg" alt="" class="individual-hans shadow" >
+                <div class="text-template shadow">
                 <p> Hans Nituda </p>
-                <p> I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum </p>
+                <p> Role: Developer </p>
+                <p> linkedin.com/in/hanspatricknituda </p>
+                </div>
             </div>
             <div class="profiles">
-                <img src="./style/images/aldrin.png" alt="" class="individual-aldrin" >
-                <p class="header-name"> Aldrin Delica </p>
-                <p> I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum I am lorem ipsum </p>
+                <img src="./style/images/aldrin.png" alt="" class="individual-aldrin shadow" >
+                <div class="text-template shadow">
+                    <p > Aldrin Delica </p>
+                    <p> Role: Developer </p>
+                    <p>linkedin.com/in/aldrindelica </p>
+                </div>
+                
             </div>
         </div>
         

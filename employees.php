@@ -1,5 +1,5 @@
  <?php
-
+session_start();
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -88,6 +88,16 @@ $conn->close();
 </nav>
 
 <main class="main">
+  <?php
+    if (isset($_SESSION['updateStatus'])):
+  ?>
+  <div class="alert alert-<?=$_SESSION['updateStatus_Style']?>">
+    <?php
+      echo $_SESSION['updateStatus'];
+      unset ($_SESSION['updateStatus']);
+    ?>
+  </div>
+  <?php endif ?>
 
 <div class="title-flex">
 <div class="form-title">
@@ -121,9 +131,14 @@ $conn->close();
         <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
     </a></svg>
        
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill edit-icon" viewBox="0 0 16 16" data-toggle="modal" data-target="#editEmployeeModal" >
+
+
+    
+        <a href="edit_employees.php?id=<?php echo $row['id']; ?> ">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill edit-icon" viewBox="0 0 16 16"  >
         <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
         </svg>
+        </a>
     
     </td>
     </tr>
@@ -136,7 +151,7 @@ $conn->close();
 
 
 <!-- #####Start of Edit Modal########################### -->
-<div class="modal fade" id="editEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<!-- <div class="modal fade" id="editEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -146,56 +161,7 @@ $conn->close();
         </button>
       </div>
       <div class="modal-body">
-        <!-- #####Start of the contents of the Modal########################### -->
         
-        <!-- employee_Name
-        employee_Salary
-        employee_dateOfEmployment -->
-
-        <!-- if(isset($_GET['id'])){
-
-        } -->
-
-     
-
-
-        <form method="POST" action="">
-
-        <?php 
-          $conn = new mysqli($servername, $username, $password,$dbname); 
-        
-          if(isset($_POST['id'])) {
-            $id = $_POST['id'];
-            $query = "SELECT * FROM employees WHERE id='id' ";
-            $query_run = mysqli_query($conn, $query);
-
-              foreach($query_run as $row) {
-                // echo $row['displayName'];
-                ?>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1"> Name </label>
-                      <input type="text" class="form-control" id="displayName" value="<?= $row['displayName'];?>">
-                    
-                    
-                      <label for="exampleInputEmail1"> Salary </label>
-                      <input type="text" class="form-control" id="salary" value="<?= $row['salary'];?>">
-                    
-                    
-                      <label for="exampleInputEmail1"> Date of Employment </label>
-                      <input type="text" class="form-control" id="employedAt" value="<?= $row['employedAt'];?>">
-                    </div>
-                <?php
-
-              }
-          }
-          
-        ?>
-
-        
-          
-        </form>
-        <!-- #####End of the contents of the Modal########################### -->
-
       </div>
       <div class="modal-footer">
         <div class="close-modal-button">
@@ -206,7 +172,7 @@ $conn->close();
 
     </div>
   </div>
-</div>
+</div> -->
 <!-- #####End of Edit Modal########################### -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -215,8 +181,7 @@ $conn->close();
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
-    <!-- ##### JavaScript ##### -->
-      <script src="./style/index.js"></script>
+  <!-- ##### JavaScript ##### -->
 
 
 </body>
