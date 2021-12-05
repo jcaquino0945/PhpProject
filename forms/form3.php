@@ -155,6 +155,7 @@ $totalDeductions = $sss + $philhealth + $totalAbsences + $pagibig;
 // Taxable Salary
 $taxableSalary = $payAfterAdditions - $totalDeductions;
 
+$temp = $payAfterAdditions - $workingHoursMinusHolidaysPay;
 
 
 $finalTax = 0;
@@ -180,6 +181,11 @@ if ($taxableSalary < 20833.33){
 // if month == 'December' && basepay > 90000 {
 //     decsalary = final tax + base pay
 // }
+
+// echo $specialHolidayPay;     
+// echo $regularHolidayPay   ;   
+// echo $overtimeNormalPay ;    
+// echo $overtimeSpecialPay ;   
 
 $conn->close();
 ?>
@@ -268,19 +274,22 @@ $conn->close();
                 <div>
                     <?php if ($_POST["month"] == "December"): ?>
                             <p class="text-uppercase mb-4 fw-bold">Final Computation for December</p>
-                            <p class="my-2">Total Additional Pay: Php <?php echo number_format($payAfterAdditions, 2); ?></p>
+                            <p class="my-2">Base Pay: Php <?php echo number_format($basePay, 2); ?></p>
+                            <p class="my-2">Total Additional Pay: Php <?php echo number_format($temp, 2); ?></p>
                             <p class="my-2">Total Deductions: Php <?php echo number_format($totalDeductions, 2); ?></p>
                             <p class="my-2">Taxable Salary: Php <?php echo number_format($taxableSalary, 2); ?></p>
                             <p class="my-2">December Monthly Salary: Php <?php echo number_format($finalTax, 2); ?></p>
                             <p class="my-2">13th Month Pay: Php <?php echo number_format($basePay, 2); ?></p>
-                            <p class="my-2 fw-bold">Full salary for December: <?php echo number_format($basePay + $finalTax, 2); ?></p>
+                            <p class="my-4 fw-bold">Full salary for December: <?php echo number_format($basePay + $finalTax, 2); ?></p>
                     <?php else : ?>
                         <div>
                             <p class="text-uppercase mb-4 fw-bold">Final Computation</p>
-                            <p class="my-2">Total Additional Pay: Php <?php echo number_format($payAfterAdditions, 2); ?></p>
+                            <p class="my-2">Base Pay: Php <?php echo number_format($basePay, 2); ?></p>
+                            <p class="my-2">Total Additional Pay: Php <?php echo number_format($temp, 2); ?></p>
                             <p class="my-2">Total Deductions: Php <?php echo number_format($totalDeductions, 2); ?></p>
                             <p class="my-2">Taxable Salary: Php <?php echo number_format($taxableSalary, 2); ?></p>
-                            <p class="my-4 fw-bold">Final Salary: Php <?php echo number_format($finalTax, 2); ?></p>       
+                            <p class="my-4 fw-bold">Final Salary: Php <?php echo number_format($finalTax, 2); ?></p>
+                              
                         </div>
                     <?php endif ?>
                 </div>
