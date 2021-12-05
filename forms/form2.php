@@ -37,24 +37,24 @@ switch ($month) {
     case "January":
         $regHolidays = [0,1];
         // $basePay = $salaryPerHour * 168;
-        $workingHours = 168;
+        $workingHours = 160;
         break;
     case "Febuary":
         $specHolidays = [0,1];
         // $basePay = $salaryPerHour * 152;
-        $workingHours = 152;
+        $workingHours = 160;
         break;
     case "March":
         $regHolidays = [0];
         $specHolidays = [0];
         // $basePay = $salaryPerHour * 176;
-        $workingHours = 176;
+        $workingHours = 160;
         break;
     case "April":
         $regHolidays = [0,1,2];
         $specHolidays = [0,1];
         // $basePay = $salaryPerHour * 176;
-        $workingHours = 176;
+        $workingHours = 160;
         break;
     case "May":
         $regHolidays = [0,1];
@@ -64,44 +64,44 @@ switch ($month) {
     case "June":
         $regHolidays = [0,1];
         // $basePay = $salaryPerHour * 176;
-        $workingHours = 176;
+        $workingHours = 160;
         break;
     case "July":
         $regHolidays = [0];
         $specHolidays = [0];
         // $basePay = $salaryPerHour * 176;
-        $workingHours = 176;
+        $workingHours = 160;
         break;
     case "August":
         $regHolidays = [0,1];
         $specHolidays = [0,1];
         // $basePay = $salaryPerHour * 168;
-        $workingHours = 168;
+        $workingHours = 160;
         break;
     case "September":
         $regHolidays = [0];
         $specHolidays = [0];
         // $basePay = $salaryPerHour * 168;
-        $workingHours = 168;
+        $workingHours = 160;
         break;
     case "October":
         $regHolidays = [0];
         $specHolidays = [0];
         // $basePay = $salaryPerHour * 168;
-        $workingHours = 168;
+        $workingHours = 160;
         break;
     case "November":
         $regHolidays = [0,1];
         $specHolidays = [0,1];
         // $basePay = $salaryPerHour * 152;
-        $workingHours = 152;
+        $workingHours = 160;
         break;
     case "December":
         $regHolidays = [0,1,2];
         $specHolidays = [0,1];
         // $basePay = $salaryPerHour * 176;
-        $workingHours = 176;
-        $payFor13thMonth = $salaryPerHour * 176;;
+        $workingHours = 160;
+        $payFor13thMonth = $salaryPerHour * 160;
         break;
 }
 
@@ -146,6 +146,8 @@ switch ($month) {
 
     <main class="main">
     <form action="form3.php" method="post">
+        <input type=hidden name=month value="<?php echo $_POST["month"]; ?>">
+        <input type=hidden name=displayName value="<?php echo $_POST["displayName"]; ?>">
         <div class="form-title">
             <p class="display-6">Salary Calculator (Part 2)</p>
         </div>
@@ -179,11 +181,11 @@ switch ($month) {
                 </div>
                 <div class="half-form-child">
                     <label for="inputPlaceholder3">Normal (Per hour)</label>
-                    <input type="Placeholder" class="form-control" id="overtimeHoursNormal" placeholder="Placeholder" name="overtimeHoursNormal">
+                    <input type="Placeholder" class="form-control" id="overtimeHoursNormal" value="0" name="overtimeHoursNormal">
                 </div>
                 <div class="half-form-child">
                     <label for="inputPlaceholder3">Rest Day (Per hour)</label>
-                    <input type="Placeholder" class="form-control" id="overtimeHoursSpecial" placeholder="Placeholder" name="overtimeHoursSpecial">
+                    <input type="Placeholder" class="form-control" id="overtimeHoursSpecial" value="0" name="overtimeHoursSpecial">
                 </div>
             </div>
         </div>
@@ -194,7 +196,7 @@ switch ($month) {
                 </div>
                 <div class="half-form-child">
                     <label for="inputPlaceholder3">Day/s absent</label>
-                    <input type="Placeholder" class="form-control" id="absences" placeholder="Placeholder" name="absences">
+                    <input type="Placeholder" class="form-control" id="absences" value="0" name="absences">
                 </div>
             </div>
             <div class="half-form-right">
@@ -215,6 +217,7 @@ switch ($month) {
         </div>
     </form>
     </main>
+   
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
