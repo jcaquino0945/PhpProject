@@ -115,7 +115,7 @@ $conn->close();
     <tr>
       <th scope="col">#</th>
       <th scope="col">Employee Name</th>
-      <th scope="col">Monthly Salary</th>
+      <th scope="col">Monthly Salary / hour</th>
       <th scope="col">Date of Employment</th>
       <th scope="col"></th>
     </tr>

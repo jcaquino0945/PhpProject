@@ -23,6 +23,7 @@ $salaryPerHour = $_POST["salaryPerHour"];
 $payFor13thMonth = $_POST["payFor13thMonth"];
 $deminimis = 3100;
 
+
 $workingHoursMinusHolidays = $workingHours - (($holidayRegularDays * 8) + ($holidaySpecialDays * 8));
 $workingHoursMinusHolidaysPay = $salaryPerHour * $workingHoursMinusHolidays;
 
@@ -34,7 +35,7 @@ $overtimeSpecialPay =  $salaryPerHour * ($overtimeSpecialHours * 1.3);
 // 168 - 8 - 8
 // 152
 
-$payAfterAdditions = $workingHoursMinusHolidaysPay + $regularHolidayPay + $specialHolidayPay + $overtimeNormalPay + $overtimeSpecialPay + $payFor13thMonth + $deminimis;
+$payAfterAdditions = $workingHoursMinusHolidaysPay + $regularHolidayPay + $specialHolidayPay + $overtimeNormalPay + $overtimeSpecialPay + $deminimis;
 
 echo $payAfterAdditions;
 
@@ -140,11 +141,16 @@ if ($basePay <= 3250) {
     $sss = 1125;
 } 
 
+// absences 
+$totalAbsences = ($absences * 8) * $salaryPerHour;
+
 // Total deductions 
-$totalDeductions = $sss + $philhealth;
+$totalDeductions = $sss + $philhealth + $totalAbsences;
 
 // Taxable Salary
-$taxableSalary = $basePay - $totalDeductions;
+$taxableSalary = $payAfterAdditions - $totalDeductions;
+
+
 
 $finalTax = 0;
 // $additionalTax
@@ -160,10 +166,15 @@ if ($taxableSalary < 20833.33){
 } else if ($taxableSalary >= 66666.68 && $taxableSalary <= 166666.67) {
     $additionalTax= $taxableSalary - 66666.68 * 0.3;
     $finalTax = 10833.33 + $additionalTax;
-} else if ($taxableSalary >= 166666.68 && $taxableSalary <= 666666.67) {
+} else if ($taxableSalary >= 166666.68) {
     $additionalTax= $taxableSalary - 166666.68 * 0.32;
     $finalTax = 40833.33 + $additionalTax;
 } 
+ 
+
+// if month == 'December' && basepay > 90000 {
+//     decsalary = final tax + base pay
+// }
 
 $conn->close();
 ?>
@@ -209,13 +220,17 @@ $conn->close();
         </div>
 
         <div class="form-subtitle">
-            <p>Pay after additions: Php <?php echo $basePay; ?></p>
+            <p>Pay after additions: Php <?php echo $payAfterAdditions; ?></p>
             <p>Deductions</p>
             <p>Philhealth: Php <?php echo $philhealth; ?></p>
             <p>SSS: Php <?php echo $sss; ?></p>
             <p>Total deductions: Php <?php echo $totalDeductions; ?></p>
             <p>Taxable Salary: Php <?php echo $taxableSalary; ?></p>
-            <p>Final Tax: Php <?php echo $finalTax; ?></p>
+            <p>Final Salary: Php <?php echo $finalTax; ?></p>
+            <!-- lalabas lang kapag december -->
+            <p>13 month pay: </p> 
+            <p> <?php echo $totalAbsences; ?></p>
+            <p> <?php echo $basePay; ?></p>
         </div>
 
         

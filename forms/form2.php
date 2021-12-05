@@ -36,25 +36,25 @@ echo $salaryPerHour;
 switch ($month) {
     case "January":
         $regHolidays = [0,1];
-        $basePay = $salaryPerHour * 168;
-        $workingHours = 168;
+        $basePay = $salaryPerHour * 160;
+        $workingHours = 160;
         break;
     case "Febuary":
         $specHolidays = [0,1];
-        $basePay = $salaryPerHour * 152;
-        $workingHours = 152;
+        $basePay = $salaryPerHour * 160;
+        $workingHours = 160;
         break;
     case "March":
         $regHolidays = [0];
         $specHolidays = [0];
-        $basePay = $salaryPerHour * 176;
-        $workingHours = 176;
+        $basePay = $salaryPerHour * 160;
+        $workingHours = 160;
         break;
     case "April":
         $regHolidays = [0,1,2];
         $specHolidays = [0,1];
-        $basePay = $salaryPerHour * 176;
-        $workingHours = 176;
+        $basePay = $salaryPerHour * 160;
+        $workingHours = 160;
         break;
     case "May":
         $regHolidays = [0,1];
@@ -63,45 +63,45 @@ switch ($month) {
         break;
     case "June":
         $regHolidays = [0,1];
-        $basePay = $salaryPerHour * 176;
-        $workingHours = 176;
+        $basePay = $salaryPerHour * 160;
+        $workingHours = 160;
         break;
     case "July":
         $regHolidays = [0];
         $specHolidays = [0];
-        $basePay = $salaryPerHour * 176;
-        $workingHours = 176;
+        $basePay = $salaryPerHour * 160;
+        $workingHours = 160;
         break;
     case "August":
         $regHolidays = [0,1];
         $specHolidays = [0,1];
-        $basePay = $salaryPerHour * 168;
-        $workingHours = 168;
+        $basePay = $salaryPerHour * 160;
+        $workingHours = 160;
         break;
     case "September":
         $regHolidays = [0];
         $specHolidays = [0];
-        $basePay = $salaryPerHour * 168;
-        $workingHours = 168;
+        $basePay = $salaryPerHour * 160;
+        $workingHours = 160;
         break;
     case "October":
         $regHolidays = [0];
         $specHolidays = [0];
-        $basePay = $salaryPerHour * 168;
-        $workingHours = 168;
+        $basePay = $salaryPerHour * 160;
+        $workingHours = 160;
         break;
     case "November":
         $regHolidays = [0,1];
         $specHolidays = [0,1];
-        $basePay = $salaryPerHour * 152;
-        $workingHours = 152;
+        $basePay = $salaryPerHour * 160;
+        $workingHours = 160;
         break;
     case "December":
         $regHolidays = [0,1,2];
         $specHolidays = [0,1];
-        $basePay = $salaryPerHour * 176;
-        $workingHours = 176;
-        $payFor13thMonth = $salaryPerHour * 176;;
+        $basePay = $salaryPerHour * 160;
+        $workingHours = 160;
+        $payFor13thMonth = $salaryPerHour * 160;
         break;
 }
 echo $month;
