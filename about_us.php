@@ -61,15 +61,15 @@
                 <div class="text-template shadow">
                 <p> Devdan Romulo </p>
                 <p> Role: Developer </p>
-                <p>https://www.linkedin.com/in/devdan-romulo </p>
+                <p style="font-size: 12px;">https://www.linkedin.com/in/devdan-romulo </p>
                 </div>
             </div>
             <div class="profiles">
-                <img src="./style/images/aldrin.png" alt="" class="individual-jc shadow" >
+                <img src="./style/images/jc.jpg" alt="" class="individual-jc shadow" >
                 <div class="text-template shadow">
                 <p> Juan Carlos Aquino </p>
                 <p> Role: Developer </p>
-                <p>https://www.linkedin.com/in/jcm-aquino </p>
+                <p style="font-size: 12px;">https://www.linkedin.com/in/jcm-aquino </p>
                 </div>
             </div>
             <div class="profiles">
@@ -77,7 +77,7 @@
                 <div class="text-template shadow">
                 <p> Hans Nituda </p>
                 <p> Role: Developer </p>
-                <p> linkedin.com/in/hanspatricknituda </p>
+                <p style="font-size: 12px;"> linkedin.com/in/hanspatricknituda </p>
                 </div>
             </div>
             <div class="profiles">
@@ -85,7 +85,7 @@
                 <div class="text-template shadow">
                     <p > Aldrin Delica </p>
                     <p> Role: Developer </p>
-                    <p>linkedin.com/in/aldrindelica </p>
+                    <p style="font-size: 12px;">linkedin.com/in/aldrindelica </p>
                 </div>
                 
             </div>

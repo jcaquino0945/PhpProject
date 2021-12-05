@@ -131,14 +131,18 @@
     border: 3px solid grey;
 }
 .text-template {
-    
+    width: auto;
     margin-top: 2px;
     justify-content: center;
     align-items: center;
     text-align: justify-center;
     vertical-align: middle;
     transition: 0.10s;
+    word-wrap: break-word;
     /* background-image: linear-gradient(white, lightblue); */
+}
+.text-template p {
+    word-wrap: break-word;
 }
 .text-template:hover {
     background-image: linear-gradient(white, lightblue);
