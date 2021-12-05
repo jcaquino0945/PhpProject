@@ -28,7 +28,7 @@
             <p>Vague</p>
         </div>
         <div class="navbar-links">
-        <a href="home.php">Salary Calculator</a>
+        <a href="./forms/form1.php" style="color:red">Salary Calculator</a>
         <a href="employees.php">Employees</a>
         <a href="about_us.php" style="color:red">About us</a>
 

@@ -31,7 +31,7 @@
                 
                 
                 echo 'You have entered valid use name and password';
-                header("location:home.php");
+                header("location:./forms/form1.php");
                 exit;
 
 
