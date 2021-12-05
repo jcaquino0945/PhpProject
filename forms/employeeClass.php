@@ -4,7 +4,6 @@ class Employee {
     public $basePay;
     public $salaryPerHour;
 
-
     public function __construct($employee,$salaryPerHour) {
         $this->employee = $employee;
         $this->salaryPerHour = $salaryPerHour;
@@ -12,8 +11,7 @@ class Employee {
 
     public function intro() {
         echo "Employee {$this->employee} has a salary of {$this->salaryPerHour} per hour.";
-      }
-
+    }
 }
 
 ?>

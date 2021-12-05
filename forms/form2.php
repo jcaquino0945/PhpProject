@@ -116,11 +116,18 @@ class VagueEmployee extends Employee {
             echo "Employee {$this->employee} has a salary of {$this->salaryPerHour} per hour. {$this->employee} has a total salary of {$basePay} per month.";
           }
 
-          public function getBasePay() {
-            return $this->salaryPerHour * $this->workingHours;
-        }
+          function __call($name,$arg){ //overloading
+            if($name == 'getBasePay')
+               switch(count($arg)){
+                  case 0 : return $this->salaryPerHour * $this->workingHours;
+                  case 1 : return ($this->salaryPerHour * $this->workingHours) * 2;
+               }
+         }
 
-      }
+          public function getWorkingHours() {
+            return $this->workingHours;
+          } 
+}
       $employee = new Employee($employeeName,$salaryPerHour);
       $vagueEmployee = new VagueEmployee($employeeName,$salaryPerHour,$workingHours);
 ?>
@@ -215,7 +222,7 @@ class VagueEmployee extends Employee {
             </div>
             <div class="half-form-right">
                 <input type="Placeholder" class="form-control" id="basePay"  name="basePay" style="display: none;" value="<?php echo $vagueEmployee->getBasePay(); ?>">
-                <input type="Placeholder" class="form-control" id="workingHours"  name="workingHours" style="display: none;" value="<?php echo $workingHours; ?>">
+                <input type="Placeholder" class="form-control" id="workingHours"  name="workingHours" style="display: none;" value="<?php echo $vagueEmployee->getWorkingHours(); ?>">
                 <input type="Placeholder" class="form-control" id="salaryPerHour"  name="salaryPerHour" style="display: none;" value="<?php echo $salaryPerHour; ?>">
                 <input type="Placeholder" class="form-control" id="payFor13thMonth"  name="payFor13thMonth" style="display: none;" value="<?php echo $payFor13thMonth; ?>">
 
