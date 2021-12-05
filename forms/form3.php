@@ -1,8 +1,6 @@
 <?php
 include ('employeeClass.php');
 
-
-
 $servername = "localhost";
 $username = "root";
 $password = "";
