@@ -3,6 +3,7 @@ class Employee {
     public $employee;
     public $basePay;
     public $salaryPerHour;
+    public $bonus;
 
     public function __construct($employee,$salaryPerHour) {
         $this->employee = $employee;

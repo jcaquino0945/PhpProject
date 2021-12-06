@@ -200,7 +200,11 @@ switch ($month) {
                 </div>
             </div>
             <div class="half-form-right">
-                <input type="Placeholder" class="form-control" id="basePay"  name="basePay" style="display: none;" value="<?php echo $vagueEmployee->getBasePay(); ?>">
+                <input type="Placeholder" class="form-control" id="basePay"  name="basePay" style="display: nope;" value="<?php if ($month == 'December') {
+                    echo $vagueEmployee->getBasePay('December') / 2;
+                } else {
+                    echo $vagueEmployee->getBasePay();
+                }?>">
                 <input type="Placeholder" class="form-control" id="workingHours"  name="workingHours" style="display: none;" value="<?php echo $vagueEmployee->getWorkingHours(); ?>">
                 <input type="Placeholder" class="form-control" id="salaryPerHour"  name="salaryPerHour" style="display: none;" value="<?php echo $salaryPerHour; ?>">
                 <input type="Placeholder" class="form-control" id="payFor13thMonth"  name="payFor13thMonth" style="display: none;" value="<?php echo $payFor13thMonth; ?>">
